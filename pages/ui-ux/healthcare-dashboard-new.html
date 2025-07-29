@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Healthcare Dashboard - Jane Doe Portfolio</title>
+  <link rel="stylesheet" href="../../css/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HTML5 Template for Header -->
+  <template id="header-template">
+    <header>
+      <nav>
+        <div class="logo">Jane<span>Doe</span></div>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#about">About</a></li>
+          <li><a href="../../index.html#portfolio">UI/UX</a></li>
+          <li><a href="../../index.html#creative">Arts</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  </template>
+
+  <!-- HTML5 Template for Footer -->
+  <template id="footer-template">
+    <footer>
+      <p>&copy; 2024 Jane Doe. All rights reserved. | Crafted with passion for design.</p>
+    </footer>
+  </template>
+
+  <!-- Header placeholder -->
+  <div id="header-placeholder"></div>
+
+  <main class="case-study">
+    <div class="case-study-hero">
+      <img src="../../images/heroes/healthcare-dashboard-hero.jpg" alt="Healthcare Dashboard">
+      <div class="case-study-intro">
+        <h1>Healthcare Dashboard</h1>
+        <p class="case-study-subtitle">Streamlining patient care with intuitive data visualization</p>
+        <div class="case-study-meta">
+          <div class="meta-item">
+            <strong>Role:</strong> Senior UX Designer
+          </div>
+          <div class="meta-item">
+            <strong>Duration:</strong> 5 months
+          </div>
+          <div class="meta-item">
+            <strong>Team:</strong> 3 designers, 4 developers, 2 doctors
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-content">
+      <section class="case-study-section">
+        <h2>The Challenge</h2>
+        <p>Healthcare professionals were struggling with an outdated patient management system that scattered critical information across multiple screens. Doctors needed quick access to patient history, vitals, and treatment plans to make informed decisions efficiently during busy hospital rounds.</p>
+      </section>
+
+      <section class="case-study-section">
+        <h2>User Research</h2>
+        <p>Working closely with medical professionals, we conducted:</p>
+        <ul>
+          <li>Shadowing sessions with 12 doctors during hospital rounds</li>
+          <li>Interviews with 20 nurses about daily workflow challenges</li>
+          <li>Analysis of existing system usage patterns</li>
+          <li>Time-motion studies to identify bottlenecks</li>
+        </ul>
+        <p>Key insight: Medical staff needed information hierarchy that matched clinical priority, not administrative convenience.</p>
+      </section>
+
+      <section class="case-study-section">
+        <h2>Design Solutions</h2>
+        <div class="process-grid">
+          <div class="process-item">
+            <h3>Information Architecture</h3>
+            <p>Redesigned data hierarchy to prioritize critical patient information and recent changes.</p>
+          </div>
+          <div class="process-item">
+            <h3>Visual Design</h3>
+            <p>Created clear visual indicators for urgent conditions and treatment status updates.</p>
+          </div>
+          <div class="process-item">
+            <h3>Workflow Integration</h3>
+            <p>Designed interfaces that fit naturally into existing medical workflows and protocols.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>Patient Overview</h3>
+            <p>Comprehensive patient summary with vitals, allergies, and current medications at a glance.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Alert System</h3>
+            <p>Smart notifications for critical changes, drug interactions, and follow-up requirements.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Mobile Optimization</h3>
+            <p>Tablet-friendly design for bedside consultations and round documentation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section">
+        <h2>Design Examples</h2>
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <img src="../../images/gallery/healthcare-example-1.jpg" alt="Healthcare Dashboard">
+            <div class="gallery-item-info">
+              <h3>Patient Overview</h3>
+              <p>Comprehensive dashboard displaying key patient metrics and vital signs</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="../../images/gallery/healthcare-example-2.jpg" alt="Medical Records">
+            <div class="gallery-item-info">
+              <h3>Medical Records</h3>
+              <p>Organized medical history interface with quick access to patient data</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="../../images/gallery/healthcare-example-3.jpg" alt="Analytics View">
+            <div class="gallery-item-info">
+              <h3>Analytics & Reporting</h3>
+              <p>Data visualization tools for tracking patient outcomes and trends</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="case-study-navigation">
+        <a href="ecommerce-platform.html" class="btn-secondary">← E-commerce Platform</a>
+        <a href="food-delivery.html" class="btn">Food Delivery App →</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Load HTML5 templates when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load header template
+      const headerTemplate = document.getElementById('header-template');
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      if (headerTemplate && headerPlaceholder) {
+        const headerClone = headerTemplate.content.cloneNode(true);
+        headerPlaceholder.appendChild(headerClone);
+      }
+      
+      // Load footer template
+      const footerTemplate = document.getElementById('footer-template');
+      const footerPlaceholder = document.getElementById('footer-placeholder');
+      if (footerTemplate && footerPlaceholder) {
+        const footerClone = footerTemplate.content.cloneNode(true);
+        footerPlaceholder.appendChild(footerClone);
+      }
+    });
+  </script>
+</body>
+</html>

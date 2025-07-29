@@ -6,21 +6,35 @@
   <title>Photography Gallery - Jane Doe Portfolio</title>
   <link rel="stylesheet" href="../../css/styles.css"/>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <script src="../../templates/template-loader.js"></script>
+  <script src="../../js/lightbox.js"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">Jane<span>Doe</span></div>
-      <ul>
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../../index.html#about">About</a></li>
-        <li><a href="../../index.html#portfolio">UI/UX</a></li>
-        <li><a href="../../index.html#creative">Arts</a></li>
-        <li><a href="../../index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- HTML5 Template for Header -->
+  <template id="header-template">
+    <header>
+      <nav>
+        <div class="logo">Jane<span>Doe</span></div>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#about">About</a></li>
+          <li><a href="../../index.html#portfolio">UI/UX</a></li>
+          <li><a href="../../index.html#creative">Arts</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  </template>
+
+  <!-- HTML5 Template for Footer -->
+  <template id="footer-template">
+    <footer>
+      <p>&copy; 2024 Jane Doe. All rights reserved. | Crafted with passion for design.</p>
+    </footer>
+  </template>
+
+  <!-- Header placeholder -->
+  <div id="header-placeholder"></div>
+  
   <main class="gallery">
     <div class="gallery-hero">
       <h1>Photography</h1>
@@ -34,7 +48,16 @@
 
       <div class="image-gallery">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=600&q=80" alt="Portrait Photography">
+          <img src="../../images/photography/forest.jpg" alt="Original Photography" class="clickable-image original-image-crop" onclick="openModal('../../images/photography/forest.jpg', 'Original Composition')">
+          <div class="gallery-item-info">
+            <h3>Original Composition</h3>
+            <p>Personal photographic work showcasing unique perspective and artistic vision</p>
+            <span class="medium">Digital • Original Work • 2024</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="../../images/gallery/drawing/drawing-portrait.jpg" alt="Portrait Photography">
           <div class="gallery-item-info">
             <h3>Urban Portrait</h3>
             <p>Street portrait capturing authentic human expression in natural light</p>
@@ -43,7 +66,7 @@
         </div>
 
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=80" alt="Landscape Photography">
+          <img src="../../images/gallery/drawing/drawing-gallery-1.jpg" alt="Landscape Photography">
           <div class="gallery-item-info">
             <h3>Golden Hour Landscape</h3>
             <p>Mountain vista captured during the magic hour with dramatic cloud formations</p>
@@ -52,7 +75,7 @@
         </div>
 
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80" alt="Architecture Photography">
+          <img src="../../images/gallery/drawing/drawing-gallery-2.jpg" alt="Architecture Photography">
           <div class="gallery-item-info">
             <h3>Architectural Lines</h3>
             <p>Modern building emphasizing geometric patterns and shadow play</p>
@@ -61,7 +84,7 @@
         </div>
 
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Nature Photography">
+          <img src="../../images/gallery/drawing/drawing-gallery-3.jpg" alt="Nature Photography">
           <div class="gallery-item-info">
             <h3>Forest Path</h3>
             <p>Moody forest scene with dappled light filtering through the canopy</p>
@@ -70,7 +93,7 @@
         </div>
 
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?w=600&q=80" alt="Street Photography">
+          <img src="../../images/gallery/drawing/drawing-gallery-4.jpg" alt="Street Photography">
           <div class="gallery-item-info">
             <h3>City Rhythms</h3>
             <p>Candid street scene capturing the energy and movement of urban life</p>
@@ -79,7 +102,7 @@
         </div>
 
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Abstract Photography">
+          <img src="../../images/gallery/drawing/drawing-gallery-5.jpg" alt="Abstract Photography">
           <div class="gallery-item-info">
             <h3>Water Reflections</h3>
             <p>Abstract composition created by water reflections and ripple patterns</p>
@@ -118,8 +141,37 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2024 Jane Doe. All rights reserved. | Crafted with passion for design.</p>
-  </footer>
+  <!-- Image Lightbox Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <div id="modalCaption"></div>
+    </div>
+  </div>
+
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Load HTML5 templates when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load header template
+      const headerTemplate = document.getElementById('header-template');
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      if (headerTemplate && headerPlaceholder) {
+        const headerClone = headerTemplate.content.cloneNode(true);
+        headerPlaceholder.appendChild(headerClone);
+      }
+      
+      // Load footer template
+      const footerTemplate = document.getElementById('footer-template');
+      const footerPlaceholder = document.getElementById('footer-placeholder');
+      if (footerTemplate && footerPlaceholder) {
+        const footerClone = footerTemplate.content.cloneNode(true);
+        footerPlaceholder.appendChild(footerClone);
+      }
+    });
+  </script>
 </body>
 </html>
