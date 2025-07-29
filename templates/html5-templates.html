@@ -1,0 +1,94 @@
+<!-- HTML5 Templates for Header and Footer -->
+
+<!-- Header Template for Regular Pages -->
+<template id="header-template">
+  <header>
+    <nav>
+      <div class="logo">Jane Doe</div>
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">UI/UX Portfolio ▼</a>
+          <div class="dropdown-content">
+            <a href="../ui-ux/banking-app.html">Mobile Banking App</a>
+            <a href="../ui-ux/travel-platform.html">Travel Platform</a>
+            <a href="../ui-ux/ecommerce-platform.html">E-commerce Platform</a>
+            <a href="../ui-ux/healthcare-dashboard.html">Healthcare Dashboard</a>
+            <a href="../ui-ux/food-delivery.html">Food Delivery App</a>
+            <a href="../ui-ux/social-platform.html">Social Media Platform</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Creative Arts ▼</a>
+          <div class="dropdown-content">
+            <a href="../creative-arts/drawing.html">Drawing</a>
+            <a href="../creative-arts/die-paint.html">Die Paint</a>
+            <a href="../creative-arts/photography.html">Photography</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</template>
+
+<!-- Header Template for Home Page -->
+<template id="header-home-template">
+  <header>
+    <nav>
+      <div class="logo">Jane<span>Doe</span></div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">UI/UX</a></li>
+        <li><a href="#creative">Arts</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Hi, I'm <span>Jane Doe</span></h1>
+        <p>UI/UX Designer & Creative Artist <br> Bringing ideas to life through design, art, and visual storytelling.</p>
+        <a href="#portfolio" class="btn">View My Work</a>
+      </div>
+      <div class="hero-img">
+        <img src="images/heroes/hero-profile.jpg" alt="Jane Doe - UX/UI Designer">
+      </div>
+    </div>
+  </header>
+</template>
+
+<!-- Footer Template -->
+<template id="footer-template">
+  <footer>
+    <p>&copy; 2024 Jane Doe. All rights reserved. | Crafted with passion for design.</p>
+  </footer>
+</template>
+
+<!-- Minimal HTML5 Template Loader Script -->
+<script>
+(function() {
+  // Load template content
+  function loadTemplate(templateId, targetId) {
+    const template = document.getElementById(templateId);
+    const target = document.getElementById(targetId);
+    
+    if (template && target) {
+      const clone = template.content.cloneNode(true);
+      target.appendChild(clone);
+    }
+  }
+  
+  // Auto-load templates when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load header (check for home page first)
+    if (document.getElementById('header-home-placeholder')) {
+      loadTemplate('header-home-template', 'header-home-placeholder');
+    } else if (document.getElementById('header-placeholder')) {
+      loadTemplate('header-template', 'header-placeholder');
+    }
+    
+    // Load footer
+    loadTemplate('footer-template', 'footer-placeholder');
+  });
+})();
+</script>
+</template>
